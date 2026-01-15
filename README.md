@@ -146,26 +146,26 @@ For complete mathematical derivations, see Part 1 of the notebook.
 
 ## Notebooks Overview
 
-### 1️⃣ [Theory Foundation](01_theory_foundation.ipynb)
+### 1️⃣ [Theory Foundation](Anomalydetectionproject.ipynb)
 - Mathematical derivation of Isolation Forest
 - Path length analysis
 - Anomaly score formulation
 - Complexity analysis: $O(t \cdot n \log n)$
 
-### 2️⃣ [Data Exploration](02_data_exploration.ipynb)
+### 2️⃣ [Data Exploration](Anomalydetectionproject.ipynb)
 - Class imbalance quantification (577:1 ratio)
 - Feature distribution analysis
 - Correlation matrices
 - Temporal pattern identification
 - Statistical tests (Shapiro-Wilk normality)
 
-### 3️⃣ [Data Preprocessing](03_data_preprocessing.ipynb)
+### 3️⃣ [Data Preprocessing](Anomalydetectionproject.ipynb)
 - StandardScaler implementation: $z = \frac{x - \mu}{\sigma}$
 - Train/test stratified split (70/30)
 - Feature persistence for production
 - Validation of scaling correctness
 
-### 4️⃣ [Isolation Forest Implementation](04_isolation_forest.ipynb)
+### 4️⃣ [Isolation Forest Implementation](Anomalydetectionproject.ipynb)
 - Baseline model training
 - Hyperparameter tuning:
   - `contamination` ∈ [0.001, 0.01]
@@ -174,7 +174,7 @@ For complete mathematical derivations, see Part 1 of the notebook.
 - Performance evaluation (Precision/Recall/F1)
 - ROC and PR curve analysis
 
-### 5️⃣ [PCA Visualization](05_visualization_pca.ipynb)
+### 5️⃣ [PCA Visualization](Anomalydetectionproject.ipynb)
 - Dimensionality reduction: 29D → 2D/3D
 - Variance explained analysis
 - Anomaly score heatmaps
