@@ -231,10 +231,3 @@ For complete mathematical derivations, see Part 1 of the notebook.
 - **Inspiration**: Original Isolation Forest paper by Liu et al. (2008)
 - **Libraries**: scikit-learn, pandas, matplotlib, seaborn, Flask
 
-<p align="center">
-  <strong>⭐ If you find this project useful, please consider giving it a star! ⭐</strong>
-</p>
-
-<p align="center">
-  Made with ❤️ for advancing anomaly detection research
-</p>
