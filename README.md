@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Mathematical Foundation](#mathematical-foundation)
@@ -26,7 +26,7 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
 This project tackles the challenge of **anomaly detection in highly imbalanced datasets** (577:1 normal-to-anomaly ratio) using unsupervised machine learning. Unlike traditional supervised approaches that require labeled anomalies and struggle with class imbalance, **Isolation Forest** naturally identifies outliers without prior knowledge of anomaly patterns.
 
@@ -88,7 +88,7 @@ For complete mathematical derivations, see Part 1 of the notebook.
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 ### Credit Card Transactions Dataset
 
@@ -109,7 +109,7 @@ For complete mathematical derivations, see Part 1 of the notebook.
 | `Amount` | Transaction amount |
 | `Class` | 0 = Normal, 1 = Anomaly |
 
-## 📈 Key Results
+## Key Results
 
 ### Model Performance Comparison
 
@@ -144,7 +144,7 @@ For complete mathematical derivations, see Part 1 of the notebook.
 
 ---
 
-## 📚 Notebooks Overview
+## Notebooks Overview
 
 ### 1️⃣ [Theory Foundation](01_theory_foundation.ipynb)
 - Mathematical derivation of Isolation Forest
@@ -213,7 +213,7 @@ For complete mathematical derivations, see Part 1 of the notebook.
    - Synthetic anomaly generation (4 types)
    - Learning curve analysis
 
-## 📧 Contact
+## Contact
  
 **Email**: mohamadalihousseini@gmail.com  
 **LinkedIn**: [my linkedin](https://www.linkedin.com/in/mohamad-ali-husseini-51039a248/)  
@@ -225,7 +225,7 @@ For complete mathematical derivations, see Part 1 of the notebook.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Dataset**: Machine Learning Group - ULB
 - **Inspiration**: Original Isolation Forest paper by Liu et al. (2008)
