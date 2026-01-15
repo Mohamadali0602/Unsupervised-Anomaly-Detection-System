@@ -42,15 +42,14 @@ In real-world scenarios:
 
 ### Project Achievements
 
-- 🔬 **Mathematical rigor**: Complete theoretical foundation with proofs and derivations
-- 📊 **Comprehensive analysis**: 8 detailed Jupyter notebooks covering theory to deployment
-- ⚡ **Production-ready**: Full API implementation with monitoring and retraining strategies
-- 🎨 **Advanced visualizations**: PCA projections, ROC curves, feature importance analysis
-- 🔄 **Comparative study**: Isolation Forest vs Random Forest performance benchmarking
+- **Mathematical rigor**: Complete theoretical foundation with proofs and derivations
+- **Comprehensive analysis**: detailed Jupyter notebook covering theory and applied to real dataset
+- **Advanced visualizations**: PCA projections, ROC curves, feature importance analysis
+- **Comparative study**: Isolation Forest vs Random Forest performance 
 
 ---
 
-## 📐 Mathematical Foundation
+## Mathematical Foundation
 
 ### Isolation Forest Algorithm
 
@@ -85,7 +84,7 @@ $$s(x, n) = 2^{-\frac{E[h(x)]}{c(n)}}$$
 2. **Path Length**: Anomalies require fewer splits to isolate
 3. **Ensemble Averaging**: Multiple trees reduce variance
 
-For complete mathematical derivations, see [01_theory_foundation.ipynb](01_theory_foundation.ipynb).
+For complete mathematical derivations, see Part 1 of the notebook.
 
 ---
 
@@ -109,165 +108,6 @@ For complete mathematical derivations, see [01_theory_foundation.ipynb](01_theor
 | `Time` | Seconds elapsed between transaction and first transaction |
 | `Amount` | Transaction amount |
 | `Class` | 0 = Normal, 1 = Anomaly |
-
----
-
-## 📁 Project Structure
-
-```
-unsupervised-anomaly-detection/
-│
-├── 📓 Notebooks (Sequential Execution)
-│   ├── 01_theory_foundation.ipynb          # Mathematical foundations
-│   ├── 02_data_exploration.ipynb           # EDA and statistical analysis
-│   ├── 03_data_preprocessing.ipynb         # Feature scaling and splitting
-│   ├── 04_isolation_forest.ipynb           # IF implementation and tuning
-│   ├── 05_visualization_pca.ipynb          # Dimensionality reduction visualizations
-│   ├── 06_comparative_analysis.ipynb       # IF vs Random Forest comparison
-│   ├── 07_advanced_analysis.ipynb          # Robustness testing and error analysis
-│   └── 08_production_deployment.ipynb      # API development and monitoring
-│
-├── 📂 Data
-│   ├── creditcard.csv                      # Raw dataset
-│   └── processed/                          # Preprocessed data (generated)
-│
-├── 🤖 Models
-│   ├── isolation_forest_final.pkl          # Trained IF model
-│   ├── random_forest.pkl                   # Trained RF model (comparison)
-│   └── metadata/                           # Model versioning and metadata
-│
-├── 🔧 Production Files
-│   ├── api.py                              # Flask REST API
-│   ├── deployment_summary.json             # Deployment configuration
-│   └── requirements.txt                    # Python dependencies
-│
-├── 📄 Documentation
-│   ├── README.md                           # This file
-│   └── PROJECT_PLAN.md                     # Detailed project roadmap
-│
-└── 📊 Results (Generated during execution)
-    ├── figures/                            # Visualizations
-    └── metrics/                            # Performance metrics
-```
-
----
-
-## 🚀 Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- pip package manager
-- (Optional) Virtual environment (recommended)
-
-### Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/unsupervised-anomaly-detection.git
-cd unsupervised-anomaly-detection
-```
-
-### Step 2: Create Virtual Environment (Recommended)
-
-```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# On macOS/Linux:
-source venv/bin/activate
-# On Windows:
-venv\Scripts\activate
-```
-
-### Step 3: Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Step 4: Download Dataset
-
-Download the dataset from [Kaggle](https://www.kaggle.com/mlg-ulb/creditcardfraud) and place `creditcard.csv` in the project root directory.
-
----
-
-## 💻 Usage
-
-### Option 1: Local Jupyter Notebooks
-
-Run notebooks sequentially (they have dependencies):
-
-```bash
-jupyter notebook
-```
-
-**Execution Order:**
-1. `02_data_exploration.ipynb` (independent - only needs `creditcard.csv`)
-2. `03_data_preprocessing.ipynb` → generates preprocessed data
-3. `04_isolation_forest.ipynb` → trains IF model
-4. `05_visualization_pca.ipynb` → creates visualizations
-5. `06_comparative_analysis.ipynb` → RF comparison
-6. `07_advanced_analysis.ipynb` → robustness testing
-7. `08_production_deployment.ipynb` → API development
-
-### Option 2: Google Colab
-
-For Google Colab users, add this cell at the start of each notebook:
-
-```python
-# Mount Google Drive
-from google.colab import drive
-drive.mount('/content/drive')
-
-# Set working directory
-import os
-project_path = '/content/drive/MyDrive/anomaly_detection_project'
-os.makedirs(project_path, exist_ok=True)
-os.chdir(project_path)
-
-# Create folder structure
-os.makedirs('data/processed', exist_ok=True)
-os.makedirs('models', exist_ok=True)
-```
-
-### Option 3: Production API
-
-Start the Flask API server:
-
-```bash
-python api.py
-```
-
-**API Endpoints:**
-
-- `GET /health` - Health check
-- `POST /predict` - Single transaction prediction
-- `POST /predict_batch` - Batch predictions
-- `GET /metrics` - Performance metrics
-
-**Example Request:**
-
-```bash
-curl -X POST http://localhost:5000/predict \
-  -H "Content-Type: application/json" \
-  -d '{
-    "features": [0.1, -0.5, 0.3, ..., 100.0]
-  }'
-```
-
-**Example Response:**
-
-```json
-{
-  "prediction": "normal",
-  "anomaly_score": 0.234,
-  "confidence": "high",
-  "timestamp": "2026-01-15T10:30:00"
-}
-```
-
----
 
 ## 📈 Key Results
 
@@ -341,32 +181,9 @@ curl -X POST http://localhost:5000/predict \
 - True Positive/False Positive overlay
 - Geometric separation metrics
 
-### 6️⃣ [Comparative Analysis](06_comparative_analysis.ipynb)
-- Random Forest implementation
-- Side-by-side performance comparison
-- Feature importance analysis (RF only)
-- Confusion matrix comparison
-- Agreement/disagreement analysis
-
-### 7️⃣ [Advanced Analysis](07_advanced_analysis.ipynb)
-- False Positive/False Negative deep dive
-- Threshold optimization (F1-maximization)
-- Novel anomaly detection test
-- Learning curves
-- Feature sensitivity analysis
-- 5-Fold cross-validation
-
-### 8️⃣ [Production Deployment](08_production_deployment.ipynb)
-- Model versioning and metadata
-- Production pipeline (`AnomalyDetectionPipeline` class)
-- Monitoring system (`ModelMonitor` class)
-- Drift detection algorithms
-- REST API implementation (Flask)
-- Deployment checklist
-
 ---
 
-## 🔬 Technical Highlights
+## Technical Highlights
 
 ### Advanced Techniques Used
 
@@ -396,71 +213,13 @@ curl -X POST http://localhost:5000/predict \
    - Synthetic anomaly generation (4 types)
    - Learning curve analysis
 
----
-
-## 🔮 Future Work
-
-### Potential Extensions
-
-1. **Ensemble Methods**
-   - Combine IF + RF for hybrid approach
-   - Stacking with other unsupervised algorithms (DBSCAN, LOF)
-
-2. **Deep Learning**
-   - Autoencoders for anomaly detection
-   - LSTM for temporal pattern learning
-   - Transformer-based models
-
-3. **Explainability**
-   - SHAP values for feature importance
-   - LIME for local interpretability
-   - Counterfactual explanations
-
-4. **Advanced Monitoring**
-   - Real-time dashboards (Grafana/Prometheus)
-   - Concept drift detection (KL divergence, Kolmogorov-Smirnov)
-   - Automated A/B testing framework
-
-5. **Scalability**
-   - Distributed training (Dask, Ray)
-   - GPU acceleration
-   - Streaming anomaly detection
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Code Style
-
-- Follow PEP 8 guidelines
-- Add docstrings to all functions/classes
-- Include unit tests for new features
-- Update documentation as needed
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 📧 Contact
+ 
+**Email**: mohamadalihousseini@gmail.com  
+**LinkedIn**: [my linkedin](https://www.linkedin.com/in/mohamad-ali-husseini-51039a248/)  
+**GitHub**: [@Mohamadali0602](https://github.com/Mohamadali0602)
 
-**Author**: [Your Name]  
-**Email**: your.email@example.com  
-**LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-**GitHub**: [@yourusername](https://github.com/yourusername)
-
-**Institution**: [Your University]  
+**Institution**: Université Côte d'Azur  
 **Program**: Master's Degree in Applied Mathematics  
 **Year**: 2026
 
@@ -468,23 +227,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Dataset**: Machine Learning Group - ULB (Université Libre de Bruxelles)
+- **Dataset**: Machine Learning Group - ULB
 - **Inspiration**: Original Isolation Forest paper by Liu et al. (2008)
 - **Libraries**: scikit-learn, pandas, matplotlib, seaborn, Flask
-
----
-
-## 📚 References
-
-1. Liu, F. T., Ting, K. M., & Zhou, Z. H. (2008). *Isolation forest*. In 2008 Eighth IEEE International Conference on Data Mining (pp. 413-422). IEEE.
-
-2. Breunig, M. M., Kriegel, H. P., Ng, R. T., & Sander, J. (2000). *LOF: identifying density-based local outliers*. ACM sigmod record, 29(2), 93-104.
-
-3. Chandola, V., Banerjee, A., & Kumar, V. (2009). *Anomaly detection: A survey*. ACM computing surveys (CSUR), 41(3), 1-58.
-
-4. Goldstein, M., & Uchida, S. (2016). *A comparative evaluation of unsupervised anomaly detection algorithms for multivariate data*. PloS one, 11(4), e0152173.
-
----
 
 <p align="center">
   <strong>⭐ If you find this project useful, please consider giving it a star! ⭐</strong>
